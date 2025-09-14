@@ -4,14 +4,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Index from "./create-trip";
-import { toast, Toaster } from "sonner";
 import { MyContext } from "./helper/context";
 import axios from "axios";
 import ViewTrip from "./view-trip";
 import Layout from "./components/custom/Layout";
 import MyTrips from "./view-trip/MyTrips";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Index from "./create-trip/Index";
+import { toast } from "sonner";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Layout/>, // <-- shared layout
     children: [
       { index: true, element: <App /> },
-      { path: "create-trip", element: <Index /> },
+      { path: "create-trip", element: <Index/>},
       { path: "view-trip/:tripId", element: <ViewTrip /> },
       {path:'my-trips',element:<MyTrips/>}
     ],
